@@ -35,7 +35,7 @@ export class RegistroComponent implements OnInit {
   }
 
 
-  Registrarse() {
+  registrarse() {
     this.usuario.perfil = Perfil[(<HTMLInputElement>document.getElementById("perfil")).value];
 
     this.usuario.email = this.emailModel;
@@ -43,5 +43,8 @@ export class RegistroComponent implements OnInit {
     this.usuario.password = this.passwordModel;
 
     this.usuarioService.RegistrarUsuario(this.usuario);
+  }
+  changePerfil(perfil) {
+    this.perfil = perfil;
   }
 }

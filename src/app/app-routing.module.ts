@@ -15,7 +15,7 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'loguearse', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'registrarse', component: RegistroComponent, canActivate: [CanActivateService] },
   { path: 'principal', component: PrincipalComponent, canActivate: [CanActivateService] },
   

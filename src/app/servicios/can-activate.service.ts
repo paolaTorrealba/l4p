@@ -7,9 +7,10 @@ import { Perfil } from '../clases/usuario';
   providedIn: 'root'
 })
 export class CanActivateService {
-
+public perfil:string;
   constructor(private usuarioService: UsuarioService,
     private router: Router) {
+      this.perfil=localStorage.getItem("perfilParcial")
  }
 
   canActivate(route: ActivatedRouteSnapshot,
@@ -29,49 +30,52 @@ export class CanActivateService {
     if (logeado) {
 
       console.log("esta logueado", logeado)
-
+      // console.log("usuario:",this.usuarioService.usuario)
+      this.perfil=localStorage.getItem("perfilParcial")
+      console.log("perfil:", this.perfil);
       if (url == '/principal') {       
           return true;       
       }
       // administrador
       if (url == '/altaMateria') {
-        if (this.usuarioService.usuario.perfil != Perfil.administrador) {
+        if (this.perfil == Perfil.administrador) {
           return true;
         }
       }
 
       if (url == '/listadoMaterias') {
-        if (this.usuarioService.usuario.perfil == Perfil.administrador) {
+        if (this.perfil  == Perfil.administrador) {
           return true;
         }
       }
 
       if (url == '/listadoUsuarios') {
-        if (this.usuarioService.usuario.perfil == Perfil.administrador) {
+        if (this.perfil  == Perfil.administrador) {
           return true;
         }
       }
       // alumno
       if (url == '/inscripcionAMateria') {
-        if (this.usuarioService.usuario.perfil != Perfil.alumno) {
+        console.log("perfil:", this.perfil);
+        if (this.perfil  == Perfil.alumno) {
           return true;
         }
       }
 
       if (url == '/materiasAlumno') {
-        if (this.usuarioService.usuario.perfil == Perfil.alumno) {
+        if (this.perfil == Perfil.alumno) {
           return true;
         }
       }
       // profesor
       if (url == '/materiasACargo') {
-        if (this.usuarioService.usuario.perfil == Perfil.profesor) {
+        if (this.perfil == Perfil.profesor) {
           return true;
         }
       }
 
       if (url == '/alumnosPorMateria') {
-        if (this.usuarioService.usuario.perfil == Perfil.profesor) {
+        if (this.perfil == Perfil.profesor) {
           return true;
         }
       }

@@ -41,7 +41,7 @@ export class PrincipalComponent implements OnInit {
       for(let i=0;i<this.usuarios.length;i++){
         if(this.usuarios[i].correo == this.email) {
              this.usuario=this.usuarios[i];
-             localStorage.setItem("perfilUComanda", this.usuario.perfil);
+             localStorage.setItem("perfilParcial", this.usuario.perfil);
              console.log("el usuario: ",this.usuario);
         }
       }
@@ -88,7 +88,7 @@ export class PrincipalComponent implements OnInit {
     
   }
 
-  private cerrarSersion(){
+   cerrarSersion(){
     this.auth.logOut();
 
     localStorage.setItem("usuarioParcial","");

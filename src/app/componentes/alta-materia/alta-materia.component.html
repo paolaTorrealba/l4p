@@ -1,1 +1,62 @@
-<p>alta-materia works!</p>
+<section class="h-100 registro-pagina">
+        <div class="container h-100">
+          <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper registro-pagina">         
+              <div class="brand">
+              </div>
+              <div class="card fat">
+                <div class="card-body">              
+                  <form>  
+                    <div class="form-group">
+                      <label for="name">Nombre</label>
+                      <input type="text"  [(ngModel)]="nombreModel" class="form-control" name="name" id="name" required autofocus>
+                      <div  class="invalid-feedback">
+                        <div >Nombre requerido</div>
+                      </div>
+                    </div>                
+    
+                    <div class="form-group">
+                      <label for="cuatrimestre">Cuatrimestre</label>
+                      <input [(ngModel)]="cuatrimestreModel" type="cuatrimestre" 
+                      class="form-control" name="cuatrimestre" id="cuatrimestre" 
+                         required>
+                      <div class="invalid-feedback">
+                        <div >cuatrimestre requerido</div>
+                      </div>
+                    </div>
+      
+                    <div class="form-group">
+                      <label for="cupos">cupos</label>
+                      <input  [(ngModel)]="cuposModel" type="cupos" 
+                      class="form-control" name="cupos" id="cupos" 
+                       required>
+                      <div  class="invalid-feedback">
+                        <div >cupos requerido</div>
+                      </div>
+                    </div>
+        
+                    <div>
+                      <label for="actividad">profesor</label>
+                      <ul *ngFor="let item of usuarios">                           
+                          <p *ngIf="item.perfil=='profesor'">nombre: {{item.nombre}}</p>
+                          <button *ngIf="item.perfil=='profesor'" (click)="seleccionarProfesor(item)">Seleccionar</button>
+                      </ul>
+                    </div> 
+                  
+                    <div class="form-group no-margin">  
+                      <ng-container                    >
+                        <button  class="btn btn-primary btn-block" (click) ="confirmar()">
+                          Confirmar
+                        </button>
+                      </ng-container>  
+      
+                    </div>
+                
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
