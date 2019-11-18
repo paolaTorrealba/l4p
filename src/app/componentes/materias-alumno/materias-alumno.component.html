@@ -1,1 +1,10 @@
-<p>materias-alumno works!</p>
+<p>Materias en las que estas inscripto</p>
+<ul *ngFor="let item of inscripciones">    
+        <div *ngIf="item.nombreAlumno=='nombreAlumno'">
+            <p >alumno: {{item.nombreAlumno}}</p>                      
+            <p >correo alumno: {{item.correoAlumno}}</p>
+            <p >profesor: {{item.nombreProfesor}}</p> 
+            <p >materia: {{item.nombreMateria}}</p> 
+            <br>   
+      </div>
+</ul> 

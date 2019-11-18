@@ -1,1 +1,10 @@
 <p>materias-acargo works!</p>
+<ul *ngFor="let item of materias">    
+        <div *ngIf="item.profesor=='profesor'">
+            <p >cupos: {{item.cupos}}</p>                      
+            <p >cuatrimestre: {{item.cuatrimestre}}</p>
+            <p >profesor: {{item.profesor}}</p> 
+            <p >materia: {{item.nombre}}</p> 
+            <br>   
+      </div>
+</ul> 

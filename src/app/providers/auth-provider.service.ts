@@ -28,6 +28,14 @@ export interface materia {
  
 }
 
+export interface inscripcion{
+  id: string;
+  nombreMateria: string;
+  nombreProfesor: string;
+  nombreAlumno: string;
+  correoAlumno: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -86,6 +94,10 @@ export class AuthProviderService {
   }
   guardarUsuario(data) {
     return this.db.collection('usuarios').add(data);
+  }
+
+  guardarInscripcion(data) {
+    return this.db.collection('inscripciones').add(data);
   }
 
   guardarMateria(data) {

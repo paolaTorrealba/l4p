@@ -1,1 +1,10 @@
 <p>listado-materias works!</p>
+<ul *ngFor="let item of materias">    
+        <div>
+            <p >nombre: {{item.nombre}}</p>                      
+            <p >cupos: {{item.cupos}}</p>
+            <p >profesor: {{item.profesor}}</p> 
+            <p >cuatrimestre: {{item.cuatrimestre}}</p> 
+            <br>   
+      </div>
+</ul> 

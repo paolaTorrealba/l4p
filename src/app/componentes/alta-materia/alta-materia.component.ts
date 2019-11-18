@@ -52,7 +52,7 @@ export class AltaMateriaComponent implements OnInit {
     this.auth.guardarMateria(data).then(res =>{     
     }).catch(error => {
       console.log(error,"error al guardar la materia"); 
-  });
+    });
     
    }
 
