@@ -1,0 +1,18 @@
+
+
+
+   <header>      
+       <title>Menu</title>    
+   </header>
+     <ul>
+       <button  item *ngFor="let p of acciones" (click)="openPage(p.ruta)">
+         {{p.accion}} <br>
+       </button>
+      
+     </ul>
+
+
+       <button  (click)="cerrarSersion()"> Salir </button>
+
+
+ 
