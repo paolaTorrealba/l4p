@@ -5,9 +5,10 @@ import { AuthProviderService } from 'src/app/providers/auth-provider.service';
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.css']
+  styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
+
   acciones: Array<any> = [];
   public email;
   public usuario;
@@ -15,8 +16,9 @@ export class PrincipalComponent implements OnInit {
   public perfil;
   constructor( private router: Router,    
     private auth: AuthProviderService) {
+      this.obtenerUsuario();
 
-      this.email=localStorage.getItem("usuarioComanda");  
+      this.email=localStorage.getItem("usuarioParcial");  
       console.log("email del localstorage", this.email);
       this.auth.getLista('usuarios').subscribe(lista => {
         this.usuarios=lista;   
@@ -28,12 +30,13 @@ export class PrincipalComponent implements OnInit {
           }
         }
       });
-      this.obtenerUsuario();
+      
       this.mostrarMenu();
   }
  
   obtenerUsuario(){
-    this.email=localStorage.getItem("usuarioComanda");  
+    console.log("obtengo los usuarios")
+    this.email=localStorage.getItem("usuarioParcial");  
     console.log("email del localstorage", this.email);
     this.auth.getLista('usuarios').subscribe(lista => {
       this.usuarios=lista;   
@@ -42,6 +45,7 @@ export class PrincipalComponent implements OnInit {
         if(this.usuarios[i].correo == this.email) {
              this.usuario=this.usuarios[i];
              localStorage.setItem("perfilParcial", this.usuario.perfil);
+             localStorage.setItem("usuarioParcial", this.usuario.email);
              console.log("el usuario: ",this.usuario);
         }
       }
@@ -111,3 +115,4 @@ export class PrincipalComponent implements OnInit {
   }
 
 }
+

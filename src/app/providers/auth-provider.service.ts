@@ -34,6 +34,7 @@ export interface inscripcion{
   nombreProfesor: string;
   nombreAlumno: string;
   correoAlumno: string;
+  alumnos: Array<any>,
 }
 
 @Injectable({
@@ -98,6 +99,10 @@ export class AuthProviderService {
 
   guardarInscripcion(data) {
     return this.db.collection('inscripciones').add(data);
+  }
+
+  updateInscripcion(data) {
+    return this.db.collection('inscripciones').doc(data.id).update(data);
   }
 
   guardarMateria(data) {

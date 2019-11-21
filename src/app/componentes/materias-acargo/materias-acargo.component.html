@@ -1,6 +1,6 @@
-<p>materias-acargo works!</p>
+<h4>materias a cargo</h4>
 <ul *ngFor="let item of materias">    
-        <div *ngIf="item.profesor=='profesor'">
+        <div *ngIf="item.profesorEmail==profesorEmail">
             <p >cupos: {{item.cupos}}</p>                      
             <p >cuatrimestre: {{item.cuatrimestre}}</p>
             <p >profesor: {{item.profesor}}</p> 

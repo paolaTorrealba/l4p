@@ -1,1 +1,17 @@
-<p>alumnos-por-materia works!</p>
+<table>
+    <h1>Listado de alumnos por materia</h1>
+    <ul *ngFor="let item of inscripciones">    
+            <div>
+                <p >nombre materia: {{item.nombreMateria}}</p> 
+                <p >nombre profesor: {{item.nombreProfesor}}</p>   
+                <br>   
+            </div>
+            <ul *ngFor="let alumno of alumnos"> 
+                <div>
+                    <p >nombre alumno: {{alumno.nombreAlumno}}</p> 
+                    <p >email  alumno: {{alumno.emailAlumno}}</p>   
+                    <br>   
+                </div>
+            </ul>
+    </ul> 
+</table>

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-alta-materia',
   templateUrl: './alta-materia.component.html',
-  styleUrls: ['./alta-materia.component.css']
+  styleUrls: ['./alta-materia.component.scss']
 })
 export class AltaMateriaComponent implements OnInit {
   public usuarios:Array<any> = [];
@@ -17,12 +17,15 @@ export class AltaMateriaComponent implements OnInit {
   public profesorModel:string;
 
   public nombreProfesor:string;
+  public emailProfesor:string;
+  
 
   
   constructor( private router: Router,    
     private auth: AuthProviderService) {
       this.obtenerUsuarios();
       this.obtenerMaterias();
+      this.cuatrimestreModel ='1';
     }
 
   ngOnInit() {
@@ -45,6 +48,7 @@ export class AltaMateriaComponent implements OnInit {
       cupos:this.cuposModel,
       cuatrimestre:this.cuatrimestreModel,
       profesor:this.nombreProfesor,
+      profesorEmail:this.emailProfesor,
       numero: this.materias.length + 1,
   
     }
@@ -59,6 +63,7 @@ export class AltaMateriaComponent implements OnInit {
    seleccionarProfesor(item){
      console.log("selecciono el profesor:",item)
      this.nombreProfesor=item.nombre;
+     this.emailProfesor=item.email;
    }
 
    
@@ -68,4 +73,9 @@ export class AltaMateriaComponent implements OnInit {
     });
     console.log("materias: ",this.materias)
    }
+
+ 
+   changeCuatrimestre(item) {
+    this.cuatrimestreModel = item;
+  }
 }

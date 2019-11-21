@@ -1,18 +1,13 @@
 
+  <app-cabecera></app-cabecera> 
 
-
-   <header>      
-       <title>Menu</title>    
-   </header>
-     <ul>
+      <ul>
        <button  item *ngFor="let p of acciones" (click)="openPage(p.ruta)">
          {{p.accion}} <br>
        </button>
       
-     </ul>
-
+     </ul> 
 
        <button  (click)="cerrarSersion()"> Salir </button>
-
-
  
+ <router-outlet></router-outlet>

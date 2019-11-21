@@ -5,14 +5,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-materias-acargo',
   templateUrl: './materias-acargo.component.html',
-  styleUrls: ['./materias-acargo.component.css']
+  styleUrls: ['./materias-acargo.component.scss']
 })
 export class MateriasACargoComponent implements OnInit {
   public materias:Array<any> = [];
-  
+  public profesorEmail:string;
   constructor( private router: Router,    
     private auth: AuthProviderService) {
+      this.profesorEmail=localStorage.getItem("usuarioParcial")
       this.obtenerMaterias();
+
       
     }
 

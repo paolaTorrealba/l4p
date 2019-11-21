@@ -5,15 +5,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-materias-alumno',
   templateUrl: './materias-alumno.component.html',
-  styleUrls: ['./materias-alumno.component.css']
+  styleUrls: ['./materias-alumno.component.scss']
 })
 export class MateriasAlumnoComponent implements OnInit {
-  
+  public emailAlumno:string;
   public inscripciones:Array<any> = [];
   
   constructor( private router: Router,    
     private auth: AuthProviderService) {
       this.obtenerMaterias();
+      this.emailAlumno=localStorage.getItem("usuarioParcial")
       
     }
 

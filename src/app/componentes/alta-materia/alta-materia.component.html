@@ -15,7 +15,7 @@
                       </div>
                     </div>                
     
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="cuatrimestre">Cuatrimestre</label>
                       <input [(ngModel)]="cuatrimestreModel" type="cuatrimestre" 
                       class="form-control" name="cuatrimestre" id="cuatrimestre" 
@@ -23,7 +23,16 @@
                       <div class="invalid-feedback">
                         <div >cuatrimestre requerido</div>
                       </div>
-                    </div>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label for="cuatrimestre">Cuatrimestre</label>
+                        <select class="form-control" name="cuatrimestre" id="cuatrimestre" (change)="changeCuatrimestre($event.target.value)">
+                          <option value="1">Primero</option>
+                          <option value="2">Segundo</option>
+                          </select>
+                      </div>
+
       
                     <div class="form-group">
                       <label for="cupos">cupos</label>

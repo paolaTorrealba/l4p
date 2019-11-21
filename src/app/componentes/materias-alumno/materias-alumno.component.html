@@ -1,10 +1,14 @@
 <p>Materias en las que estas inscripto</p>
-<ul *ngFor="let item of inscripciones">    
-        <div *ngIf="item.nombreAlumno=='nombreAlumno'">
-            <p >alumno: {{item.nombreAlumno}}</p>                      
-            <p >correo alumno: {{item.correoAlumno}}</p>
-            <p >profesor: {{item.nombreProfesor}}</p> 
-            <p >materia: {{item.nombreMateria}}</p> 
-            <br>   
-      </div>
+<ul *ngFor="let item of inscripciones">   
+      <div>
+          <ul *ngFor="let alumno of item.alumnos">           
+            
+             <div *ngIf="alumno.emailAlumno==emailAlumno">
+                <p>materia: {{item.nombreMateria}}</p> 
+                <p >alumno: {{alumno.nombreAlumno}}</p>                      
+                <p >correo alumno: {{alumno.correoAlumno}}</p>      
+               <br>   
+             </div> 
+           </ul>
+      </div>         
 </ul> 

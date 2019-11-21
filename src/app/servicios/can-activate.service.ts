@@ -11,6 +11,8 @@ public perfil:string;
   constructor(private usuarioService: UsuarioService,
     private router: Router) {
       this.perfil=localStorage.getItem("perfilParcial")
+      console.log("perfil" ,this.perfil)
+      console.log("entre al canActivate", this.perfil)
  }
 
   canActivate(route: ActivatedRouteSnapshot,
@@ -20,11 +22,17 @@ public perfil:string;
 
     let logeado: boolean = this.usuarioService.isUserLoggedIn();
 
-    if (url == '/loguearse' || url == '/registrarse') {
-      if (!logeado)
+    if (url == '/login' || url == '/registro') {
+      if (logeado){
+        console.log("true");
         return true;
-      else
+      }
+      else{
+        console.log("false");
         return false;
+      }
+       
+       
     }
 
     if (logeado) {
